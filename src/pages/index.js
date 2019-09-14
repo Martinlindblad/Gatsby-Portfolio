@@ -4,7 +4,7 @@ import "../css/style.css"
 import LandingPage from "./LandingPage"
 import Person from "../Components/Person"
 import Button from "../Components/Button"
-import Layout from "../components/layouts";
+import Layout from "../Components/Layouts";
 
 const name = "Martin"
 const people = [
