@@ -1,10 +1,11 @@
 import React from "react"
 import "../css/style.css"
+import "../css/index.scss"
 
 import LandingPage from "./LandingPage"
 import Person from "../Components/Person"
 import Button from "../Components/Button"
-import Layout from "../Components/Layouts";
+import Layout from "../Components/Layouts"
 
 const name = "Martin"
 const people = [
@@ -26,16 +27,17 @@ const people = [
 ]
 
 export default () => (
-  <div>
-    {/* <LandingPage name={name} /> */}
-    {/* people.map((p) => (
-            <ul>
-                <li>
-                    <Person p={p} />
-                </li>
-            </ul>
-        )) */}
-    <h1>asd</h1>
-    <Button />
-  </div>
+  // <div>
+  //   <LandingPage name={name} />
+  //   people.map((p) => (
+  //           <ul>
+  //               <li>
+  //                   <Person p={p} />
+  //               </li>
+  //           </ul>
+  //       ))
+  //   <h1>asd</h1>
+  // </div>
+  <LandingPage />
+
 )

@@ -1,0 +1,29 @@
+$font-stack: 'Montserrat', sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  .wrapper{
+      width: 100vw;
+      height: 100vw;
+      margin: 0 auto;
+      padding: 0%;
+      z-index: 10;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 1;
+      background-color: $primary-color;
+      h1{
+        font-size: 5rem;
+        color: rgba(255, 255, 255, 0.782);
+        text-align: center;
+        #ml-span ::after{
+            // content: "真灯";
+            content: "→";
+            color: blue;
+        }
+      }
+  }
+}
