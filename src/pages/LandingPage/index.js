@@ -16,6 +16,11 @@ import React from "react"
 const LandingPage = () => (
   <div class="wrapper">
     <h1>M<span id="ml-span"></span>L</h1>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
   </div>
 )
 

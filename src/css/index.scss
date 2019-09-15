@@ -1,29 +1,46 @@
-$font-stack: 'Montserrat', sans-serif;
+$font-stack: "Montserrat", sans-serif;
 $primary-color: #333;
 
 body {
   font: 100% $font-stack;
   color: $primary-color;
-  .wrapper{
-      width: 100vw;
-      height: 100vw;
-      margin: 0 auto;
-      padding: 0%;
-      z-index: 10;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 1;
-      background-color: $primary-color;
-      h1{
-        font-size: 5rem;
-        color: rgba(255, 255, 255, 0.782);
-        text-align: center;
-        #ml-span ::after{
-            // content: "真灯";
-            content: "→";
-            color: blue;
-        }
+  overflow: hidden;
+  box-sizing: border-box;
+  .wrapper {
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 0%;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    background-color: $primary-color;
+    h1 {
+      font-size: 5rem;
+      color: rgba(255, 255, 255, 0.782);
+      text-align: center;
+      margin-block-start: 4em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      display: block;
+      #ml-span ::after {
+        content: "真灯";
+        color: blue;
       }
-  }
+    }
+    .wave{
+      position: absolute;
+      background-image: url(../media/images/wave.png);
+      background-size: cover;
+      background-position: bottom;
+      width: 100%;
+      height: 100%;
+      animation: backgroundLoop;
+      animation-duration: 12s;
+      animation-iteration-count: infinite;
+    }
+}
 }
