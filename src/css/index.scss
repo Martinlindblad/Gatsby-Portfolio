@@ -1,12 +1,45 @@
 $font-stack: "Montserrat", sans-serif;
-$primary-color: #333;
+$primary-color: #b7ac7f;
 $secondary-color: rgba(255, 255, 255, 0.782);
+
+@mixin glow(
+  $name,
+  $color: rgb(255, 221, 27),
+  $offset: 0 0,
+  $size: 10px,
+  $step: 10px
+) {
+  @include animation($name 1.5s ease-in-out infinite alternate);
+  @include keyframes($name) {
+    from {
+      text-shadow: $offset $size rgba($color, 1),
+        $offset $size + $step * 2 rgba($color, 1),
+        $offset $size + $step * 3 rgba($color, 0.95),
+        $offset $size + $step * 4 rgba($color, 0.9),
+        $offset $size + $step * 6 rgba($color, 0.8),
+        $offset $size + $step * 7 rgba($color, 0.7),
+        $offset $size + $step * 9 rgba($color, 0.5),
+        $offset $size + $step * 11 rgba($color, 0.2);
+    }
+    to {
+      text-shadow: $offset $size rgba($color, 1),
+        $offset $size + $step * 2 rgba($color, 0.9),
+        $offset $size + $step * 3 rgba($color, 0.7),
+        $offset $size + $step * 4 rgba($color, 0.6),
+        $offset $size + $step * 6 rgba($color, 0.5),
+        $offset $size + $step * 7 rgba($color, 0.2),
+        $offset $size + $step * 9 rgba($color, 0),
+        $offset $size + $step * 11 rgba($color, 0);
+    }
+  }
+}
 
 body {
   font: 100% $font-stack;
   color: $primary-color;
   overflow: hidden;
   box-sizing: border-box;
+
   .wrapper {
     width: 100vw;
     height: 100vh;
@@ -17,7 +50,7 @@ body {
     top: 0;
     left: 0;
     opacity: 1;
-    background-color: $primary-color;
+    background-image: linear-gradient(to bottom right, #b0c6d39c, white);
     display: grid;
     h1.ml8 {
       font-weight: 900;
@@ -25,8 +58,10 @@ body {
       color: #fff;
       width: 3em;
       height: 3em;
+      text-align: center;
+      z-index: 14;
     }
-    
+
     .ml8 .letters-container {
       position: absolute;
       left: 0;
@@ -36,7 +71,7 @@ body {
       bottom: 0;
       height: 1em;
     }
-    
+
     .ml8 .letters {
       position: relative;
       z-index: 2;
@@ -45,13 +80,13 @@ body {
       right: -0.12em;
       top: -0.2em;
     }
-    
+
     .ml8 .bang {
-      font-size: 1.4em;
+      font-size: 0.2em;
       top: auto;
       left: -0.06em;
     }
-    
+
     .ml8 .circle {
       position: absolute;
       left: 0;
@@ -60,43 +95,60 @@ body {
       top: 0;
       bottom: 0;
     }
-    
+
     .ml8 .circle-white {
       width: 3em;
       height: 3em;
       border: 2px dashed white;
       border-radius: 2em;
     }
-    
+
     .ml8 .circle-dark {
-      width: 2.2em;
-      height: 2.2em;
-      background-color: #4f7b86;
+      width: 2.5em;
+      height: 2.5em;
+      background-color: $primary-color;
       border-radius: 3em;
       z-index: 1;
     }
-    
+
     .ml8 .circle-dark-dashed {
       border-radius: 2.4em;
       background-color: transparent;
-      border: 2px dashed #4f7b86;
-      width: 2.3em;
-      height: 2.3em;
+      border: 5px double;
+      border-color: $primary-color white $primary-color white;
+      width: 2.6em;
+      height: 2.6em;
     }
-    
-    .wave{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 10px;
-      height: 10px;
-      margin: 0 auto;
-      border: 2px double $secondary-color;
+
+    .wave {
+      width: 70vw;
+      height: 70vh;
+      border: 3px double $primary-color;
       z-index: 11;
+      position: absolute;
       border-radius: 50%;
-      animation: backgroundLoop;
-      animation-duration: 12s;
-      animation-iteration-count: infinite;
+      left: 0;
+      right: 0;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      opacity: 1;
+      z-index: 9;
     }
-}
+    .wave-two {
+      width: 70vw;
+      height: 70vh;
+      border: 2px double $primary-color;
+      z-index: 11;
+      position: absolute;
+      border-radius: 50%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      opacity: 1;
+      z-index: 9;
+    }
+  }
 }
